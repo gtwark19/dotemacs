@@ -1,0 +1,2 @@
+* My personal GNU Emacs config
+*NO SUPPORT WILL BE PROVIDED!!*
