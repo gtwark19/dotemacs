@@ -35,9 +35,24 @@
 (global-page-break-lines-mode)
 
 (setq-default indent-tab-mode             nil)
+(setq-default indent-tabs-mode             -1)
 (setq-default tab-width                     2)
 (setq         c-basic-offset                2)
 (setq         css-indent-offset             2)
 (setq         web-mode-markup-indent-offset 2)
 
 (setq mouse-wheel-scroll-amount (quote (0.01)))
+
+(defun my-find-file-as-root ()
+  "Like `ido-find-file, but automatically edit the file with root-privileges (using tramp/sudo), if the file is not writable by user."
+  (interactive)
+  (let ((file (ido-read-file-name "Edit as root: ")))
+    (unless (file-writable-p file)
+      (setq file (concat "/sudo:root@localhost:" file)))
+    (find-file file)))
+
+; if indent-tabs-mode is off, untabify before saving
+(add-hook 'write-file-hooks
+         (lambda () (if (not indent-tabs-mode)
+                        (untabify (point-min) (point-max)))
+                     nil ))

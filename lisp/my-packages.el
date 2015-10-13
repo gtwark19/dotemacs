@@ -8,6 +8,7 @@
 
 (defvar required-packages
   '(
+    bongo
     column-marker
     company
     csharp-mode

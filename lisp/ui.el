@@ -26,6 +26,7 @@
 ;(setq visible-bell      1) -- Fucked up in El Capitan
 (show-paren-mode        1)
 (tool-bar-mode         -1)
+(blink-cursor-mode     -1)
 
 (autoload 'csharp-mode "csharp-mode" "Major mode for editing C# code." t)
   (setq auto-mode-list

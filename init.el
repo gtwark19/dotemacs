@@ -22,13 +22,10 @@
 
 (autoload 'pianobar "pianobar" nil t)
 
-; Move this to nav.el?
-(defun djcb-find-file-as-root ()
-  "Like `ido-find-file, but automatically edit the file with root-privileges (using tramp/sudo), if the file is not writable by user."
-  (interactive)
-  (let ((file (ido-read-file-name "Edit as root: ")))
-    (unless (file-writable-p file)
-      (setq file (concat "/sudo:root@localhost:" file)))
-    (find-file file)))
-;; or some other keybinding...
-(global-set-key (kbd "C-x F") 'djcb-find-file-as-root)
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq locale-coding-system   'utf-8)
+(set-terminal-coding-system  'utf-8)
+(set-keyboard-coding-system  'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system        'utf-8)

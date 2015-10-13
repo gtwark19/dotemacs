@@ -16,3 +16,4 @@
 (global-set-key   (kbd "M-x")         'smex)
 (global-set-key   (kbd "M-X")         'smex-major-mode-commands)
 (global-set-key   (kbd "C-c C-c M-x") 'execute-extended-command)
+(global-set-key   (kbd "C-x F")       'my-find-file-as-root)
