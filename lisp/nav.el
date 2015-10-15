@@ -51,8 +51,13 @@
       (setq file (concat "/sudo:root@localhost:" file)))
     (find-file file)))
 
-; if indent-tabs-mode is off, untabify before saving
-(add-hook 'write-file-hooks
-         (lambda () (if (not indent-tabs-mode)
-                        (untabify (point-min) (point-max)))
-                     nil ))
+(defun my-untabify-everything ()
+  (untabify (point-min) (point-max)))
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+
+(setq locale-coding-system   'utf-8)
+(set-terminal-coding-system  'utf-8)
+(set-keyboard-coding-system  'utf-8)
+(set-selection-coding-system 'utf-8)
+(prefer-coding-system        'utf-8)

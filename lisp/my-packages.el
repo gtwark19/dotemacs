@@ -24,6 +24,7 @@
     multiple-cursors
     neotree
     nyan-mode
+    pacmacs
     page-break-lines
     projectile
     rainbow-mode
@@ -38,8 +39,8 @@
 
 (defun packages-installed-p ()
   (loop for p in required-packages
-	when (not (package-installed-p p)) do (return nil)
-	finally (return t)))
+        when (not (package-installed-p p)) do (return nil)
+        finally (return t)))
 
 (unless (packages-installed-p)
   (message "%s" "GNU Emacs in now refreshing its package database...")
